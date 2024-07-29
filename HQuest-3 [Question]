@@ -1,0 +1,66 @@
+Design a quicksort algorithm that uses median of medians of 7-sized groups as pivot during partitioning. Do not assume that the size of the initial array is a multiple of 7.
+
+(a) Write a pseudocode for MOM7QS(int array A). Do not include the code for partition (simply call it as Partition(...)), but include the code for everything else.
+
+(b) Write a recursive formula to compute T(n) -- the worst case complexity of MOM7QS(array of size n). Do not ignore floors, ceilings, etc. and be as precise as possible. Explain how you obtained the different terms.
+
+(c) Solve T(n). Ignore floors, ceilings, and and approximate terms like T(n-constant), T(n+constant) by T(n).
+
+
+==========  SOLUTION  ================
+
+We will use MomSelect(A,k) from lectures that returns the k-th smallest element of A in time O(|A|).
+// returns kth ranked element of A
+def Quick7Select(A,k):
+    n = |A|
+    if n = 1: return A[0] // k > 1 should not happen
+
+    m=ceil(n/7) // number of groups
+    divide A into groups of 7 -> A1 ... Am // Am may have fewer elements
+    for i=1...m, Mi = median of Ai (computed using a trivial algorithm with constant many operations)
+    mom = Quick7Select([M1 ... Mm], ceil(m/2))
+
+    r = Partition(A,mom)
+    if k = r: return mom
+    if k < r: return Quick7Select(A[1...r-1], k)
+    if k > r: return Quick7Select(A[r+1 ... n], k-r)
+
+// sorts A
+def MOM7QS(A):
+    if |A| <= 1: return
+
+    n = |A|
+    m=ceil(n/7) // number of groups
+    divide A into groups of 7 -> A1 ... Am // Am may have fewer elements
+    for i=1...m, Mi = median of Ai (computed using a trivial algorithm with constant many operations)
+    mom = Quick7Select([M1 ... Mm], ceil(m/2)) // (lower)median of the Mi's
+    r = Partition(A, mom) // partition using mom
+    MOM7QS(A[1 ... r-1])
+    MOM7QS(A[r ... n])
+
+Let TQ(n) denote the worst-case time-complexity of MOM7QS() on any array with n elements.
+
+Claim: 4*ceil(ceil(n/7)/2) - 3 <= rank(mom) <= n - 4*ceil((n/7)/2) + 4.
+Proof: 
+Let n1 denote the number of elements <= mom and n2 denote the number of element > mom.
+The last group may contain as little as 1 element. All the other groups have 7 elements have 4 elements >= the group median and 4 elements <= the group median. When looked at the group in sorted order of the medians, the last group, denoted Gl, can come in three places.
+  o Before the group containing mom (denoted Gm): In this case, n1 >= 4*(ceil(m/2)-1) + 1 and n2 >= 4*ceil(m/2) - 1 (n2 must NOT include mom).
+  o Gl is same as Gm: In this case, n1 >= 4*(ceil(m/2)-1) + 1 and n2 >= 4*(ceil(m/2)-1).
+  o Gl appears after Gm: In this case, n1 >= 4*ceil(m/2) and n2 >= 4*(ceil(m/2)-1) + 1.
+Combining all cases, we get n1 >= 4*ceil(m/2)-3 and n2 >= 4*ceil(m/2)-4.
+Thus, rank(mom) = n1 >= 4*ceil(m/2)-3 and rank(mom) = n-n2 <= n - 4*ceil(m/2)+4.
+We prove the claim by substituing m=ceil(n/7).
+
+TQ(n) = O(m)  // compute Mi's
+   + O(m) // compute mom = median of Mi's
+        + O(n) // partition
+        + max { T(r-1) + T(n-r) } // max is over all r ranging from 4*ceil(ceil(n/7)/2) - 3 to  n - 4*ceil((n/7)/2) + 4.
+
+To solve TQ(n) we simplify the ranges of max in TQ(n) recurrence to
+  4*ceil(ceil(n/7)/2)-3 ~ 4n/14 = 2n/7
+  n - 4*ceil((n/7)/2) + 4 ~ n - 4n/14 = 10n/14 = 5n/7
+After simplifying T(r-1) by T(r) the recurrence becomes
+  TQ(n) = O(n) + max {T(r) + T(n-r)} where r ranges from 2n/7 to 5n/7
+Similar to the exercise done in class, the max happens at the extreme points, i.e., at r=2n/7 or r=5n/7. Then,
+  TQ(n) = O(n) + T(2n/7) + T(5n/7)
+Solving this, say using substitution, we get TQ(n) = O(n log n).
