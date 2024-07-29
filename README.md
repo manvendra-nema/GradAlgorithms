@@ -15,7 +15,7 @@ Welcome to the ultimate Graduate Algorithms Quest! This repository is your guide
 In this repository, you'll find:
 
 - **Questions:** Puzzles to test your algorithmic prowess.
-- **Solutions:** Clues and answers to help you on your quest. ( Expert insights and answers from Master Professor in Algorithm **Debnath Kunda** )
+- **Solutions:** Clues and answers to help you on your quest. ( Expert insights and answers from Master Professor in Algorithm **Debnath Kundu** )
 
 **Quest Objectives:**
 - Design and analyze algorithms using legendary techniques like divide and conquer, greedy methods, and dynamic programming.
