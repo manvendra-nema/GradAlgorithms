@@ -1,0 +1,50 @@
+Suppose you are given a set P of n points in a two-dimensional plane. A point p ∈ P is called a "corner point" if no other point in P is both above and to the right of P . Intuitively, the corner points
+define a “staircase” with all the other points of P “below” it. (see the picture)
+
+Design and analyse a divide-and-conquer algorithm to return the set of all corner points. The running time should be O(n log n), where n denotes the number of points. Your answer should include justification of correctness of the algorithm (justification should not be based on an example).
+
+You can assume that no two points have the same X or Y coordinate.
+
+============= SOLUTION ===============
+
+// returns the list of corner points
+def Solve(P):
+  P' = sorted list of points in P according to their X-coordinates
+  return SolveRecursive(P')
+
+// returns the list of corner points where Q is a list of points in increasing X-coordinates
+def SolveRecursive(Q):
+  if Q has only 1 point: return Q  
+
+  QL = left half of points
+  QR = right half of points
+
+  CL = SolveRecursive(QL)
+  CR = SolveRecursive(QR)
+
+  C = new list containing all points in CR
+
+  pR = find point in CR with the smallest X coordinate // leftmost corner point in the right half
+  for all point q in CL:
+    if q is below pR: // q.y < pR.y
+      continue
+    else:
+      add q to C
+
+  return C
+  
+
+Q: Can you think of an algorithm that does not require prior sorting of P?
+
+
+Claim: All corner points in QR (i.e., all points in CR) are also corner points of Q.
+Proof:
+Recall that p is not a corner point if there is a point with a larger Y coordinate and a larger X coordinate.
+Suppose q is a corner point in QR but not a corner point in Q. Then, there must be some p in Q such that p.X > q.X and p.Y > q.Y. But then p has a larger X coordinate than q, and so must belong to QR. However, in that case p would be a point in QR that lies both above and right of q, and so q would be a corner point in QR which contradicts our assumption.
+
+However, there could be corner points in QL (i.e., some points in CL) which may not be corner points in Q. Take any such point in CL, say q. Since q is not a corner point in Q but a corner point in QL, there must be some point in QR, say p, which is both above and right of q. That is, q.X < p.X and q.Y < p.Y. Now, let r be the leftmost corner point in QR. Since p is a point in QR, r.Y >= p.Y (otherwise, r would not be a corner point); thus, r.Y > q.Y. Thus, if q is a corner point in QL but not a corner point in Q, then q.Y < r.Y. Taking its contrapositive, if q.y > r.Y, then q must also be a corner point in Q. This is the check that is performed in the "if-else" lines.
+
+// You need not use induction-based proofs for recursive algorithms from now on.
+
+T(n) = 2T(n/2) + O(n) = O(n log n) for SolveRecursive
+For Solve(), running time is T(n) + O(n log n) for sorting = O(n log n)
