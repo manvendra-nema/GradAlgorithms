@@ -1,0 +1,73 @@
+The idea behind InsertionSort is to repeatedly insert a new element of an array into an already sorted subarray. The idea behind BubbleSort is to repeatedly move the max (or min) of the unsorted subarray to its correct position.
+
+
+1. Design a recursive algorithm
+def BubbleSort(A):
+    // fill
+
+Recall how we constructed a recursive algorithm for InsertionSort. You should not be using any iterative steps at all. You may use additional subroutines if required. Do not forget base cases.
+
+Write a pseudocode along with explanations for all the steps.
+
+2. Prove that BubbleSort(A) is correct.
+
+Follow the steps of InsertionSort. Avoid "is correct", instead, replace it the precise meaning of being "correct". Do not forget to state the correctness claim(s), and follow all the steps needed to prove it (them) using induction.
+
+
+3. Analyse the time-complexity of BubbleSort. Explain how the recurrence relations were constructed.
+
+Follow the steps of InsertionSort. Do not forget the base cases. Do not use O(...) in your recurrence relation if you want to solve it algebraically.
+
+
+=========== SOLUTION SKETCH ==================
+
+// Sorts an array A
+def BubbleSort(A):
+    BSRec(|A|) // Also makes A global
+
+// Sorts A[1...i] by repeatedly placing the max of an subarray towards the end
+def BSRec(i):
+    if i=1: return
+    PushMaxToEnd(i)
+    BSRec(i-1)
+
+// Places the max of A[1...i] at A[i]
+def PushMaxToEnd(i):
+    If i=1: return
+    PushMaxToEnd(i-1)
+    If A[i] < A[i-1]: swap (i,i-1)
+
+Proof of correctness of PushMaxToEnd(i)
+---------------------------------------
+
+Claim: PushMaxToEnd(i) places the max of A[1...i] to A[i].
+Induction on i.
+
+Base case: When i=1. In this case, the algorithm returns without doing anything. Since max of A[1] is A[1] itself, so the maximum value is already at its correct place. Hence, the algorithm is correct when i=1.
+
+Induction hypothesis: Assume that PushMaxToEnd places the max of A[1...k] to A[k].
+
+Induction claim: PushMaxToEnd(k+1) places the max of A[1...k+1] to A[k+1].
+Proof: The first "If" check does not hold. Then the algorithm recursively calls PushMaxToEnd(k) which, by IH, places max of A[1...k] to A[k]. In the next line, the max of this A[k] and A[k+1] is placed in the (k+1)-st position, which means that the max of original A[1...k+1] is now in A[k+1]. This is the intended behaviour.
+
+Proof of correctness of BSRec(i):
+---------------------------------
+
+Claim: BSRec(i) sorts A[1...i].
+Induction on i.
+
+Base case: When i=1, BSRec returns without doing anything. This is correct since A[1] is a one-element array which is trivially sorted.
+
+Induction hypothesis: Assume that BSRec(k) sorts A[1...k].
+
+Induction claim: BSRec(k+1) sorts A[1...k+1].
+Proof: The first "If" check does not hold. In the next line, the algorithm calls PushMaxToEnd(k+1) which, as proved above, will place the max of A[1...k+1] to its right sorted position at A[k+1]. The first k elements of A may not be sorted at this point. Then the algorithm recursively calls BSRec(k) which, by IH, sorts these k elements. Therefore, when the function returns, all the k+1 elements of A are sorted.
+
+Analysis of BubbleSort
+----------------------
+Let P(k) denote the complexity of PushMaxToEnd(k), B(k) denote the complexity of BSRec(k), and T(n) denote the complexity of BubbleSort(A) on an array of size n.
+
+(Not writing the base cases)
+P(k) <= P(k-1) + c
+B(k) = P(k) + B(k-1) + c
+T(n) = B(n)
