@@ -1,0 +1,12 @@
+We saw in class algorithms for polynomial evaluation by dividing a polynomial into two smaller polynomials, and making 2 recursive calls. This works best when a polynomial has a degree that is close to a power of 2. Otherwise, we have to pad the polynomial with higher-order terms with zero coefficient -- leading to a waste of space. In this question you will explore the situation when the polynomial has a degree close to a power of 3; it makes sense to divide into 3 smaller polynomials and make 3 recursive calls.
+0. Read JE-A.2,A.3,A.7 (they contain more detail than necessary for this question, so you need to skip the irrelevant details).
+
+1. Suppose P(x) is a polynomial of degree d=3^k-1 for some known k. Describe and analyse a O(d log d) algorithm that evaluates P(y) for any given y using a divide-and-conquer algorithm that divides a problem into 3 subproblems.
+
+2. There is some polynomial P(x)=a0 + a1*x + a2*x^2 + ... + a_d*x^d of degree d=3^k-1 for some known k. You are given the values { P(a) : a is a d-th root of unity }. Design a O(d log d) divide-and-conquer algorithm making 3 recursive calls to recover the coefficients of P(x). Hint: This requires the understanding of an algorithm for inverse FFT.
+
+
+Replacement of Q2. Do either Q2 or Q2a.
+
+
+2a. There is some polynomial P(x)=a0 + a1*x + a2*x^2 + ... + a_d*x^d of degree d=3^k-1 for some known k. You have compute the DFT of P(x), i.e, the values { P(a) : a is a d-th root of unity }. Design a O(d log d) divide-and-conquer algorithm making 3 recursive calls to compute the DFT of P(x). Hint: This does not require the understanding of an algorithm for inverse FFT.
