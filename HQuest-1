@@ -1,0 +1,54 @@
+0. Read Mergesort section from JE-1 (Chapter-1 of Jeff Erickson's online notes).
+
+1. Write a recursive algorithm to merge two sorted arrays of equal size.
+
+// A is an array with n elements
+// B is an array with n elements (assume no duplicates anywhere)
+// C is an empty array with space for 2n elements
+def Merge(A,B,C,n):
+    // fill
+
+Include a pseudocode and a brief explanation of the steps in the pseudocode (either as comments in the pseudocode or by referring to line numbers).
+
+Remember how we constructed a recursive algorithm for InsertionSort(A) ? You may use additional subroutines if needed. However, the entire logic should be recursive in nature. Do not forget appropriate base cases in your recursive methods. Proof of correctness is not required, but should be in your mind while you are constructing the algorithm.
+
+
+2. Analyse the time-complexity of your Merge(...) algorithm by deriving a recurrence (with explanation on how it was constructed)
+
+Try to follow the steps used to analyse our InsertionSort(...) algorithm. For the recurrence relation, you may need to define 2-parameter functions like T(i,j) -- you must state clearly what such functions mean with respect to each parameter. Do not forget the base case of your recurrence relation.
+
+
+Hint: Do not use O(1) in your recurrence if you plan to solve it algebraically.
+
+==========  SOLUTION ===========
+
+// A, B are n-sized arrays and C is an empty 2n-sized array
+def Merge(A,B,C,n):
+    return MergeRecursive(A,B,C,n,n)
+
+// Merges A[1...i] and B[1...j] and puts the result in C[1...(i+j)]
+def MergeRecursive(A,B,C,i,j):
+    if i=0 and j=0: return
+
+    if i > 0 and j=0:
+    MergeRecursive(A,B,C,i-1,j) // merge A[1...(i-1)], B[1...j] => C[1...(i+j-1)]
+    c[i+j] = A[i] // update c[i+j]=c[i] to A[i]
+
+    if i = 0 and j > 0:
+    MergeRecursive(A,B,C,i,j-1) // similar to above
+    c[i+j] = B[j]
+
+    if i > 0 and j > 0:
+    if A[i] > B[j]: // A[i] should be the last element in C[1...i+j]
+        MergeRecursive(A,B,C,i-1,j) // correctly set C[1...(i+j-1)] by merging A[1...i-1] and B[1...j]
+        c[i+j] = A[i] // set C[i+j]
+    else: // A[i] <= B[j]
+        MergeRecursive(A,B,C,i,j-1)
+        c[i+j] = B[j]
+
+T(i,j) denotes the complexity of MergeRecursive(A,B,C,i,j).
+T(i,j) = c + max{T(i-1,j), T(i,j-1)}
+T(0,0) = d // base case
+Claim T(i,j) = c(i+j) + d
+Thus, complexity of Merge(A,B,C,n) is T(n,n) = 2cn + d.
+T(i+j)=c(i+j) + d can be proved using guessing.
