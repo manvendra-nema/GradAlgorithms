@@ -1,5 +1,5 @@
 
-**Graduate Algorithms Quest**
+#**Graduate Algorithms Quest**
 
 Welcome to the ultimate Graduate Algorithms Quest! This repository is your guide to mastering advanced algorithms, crafted for daring postgraduate Computer Science adventurers. Prepare yourself for a thrilling journey through the fascinating world of algorithms. Here’s a glimpse of the epic quests you'll embark on:
 
@@ -14,7 +14,6 @@ Welcome to the ultimate Graduate Algorithms Quest! This repository is your guide
 
 In this repository, you'll find:
 
-- **Assignments:** Challenging tasks to sharpen your skills.
 - **Questions:** Puzzles to test your algorithmic prowess.
 - **(Optional) Solutions:** Clues and answers to help you on your quest.
 
