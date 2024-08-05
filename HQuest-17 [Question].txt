@@ -1,0 +1,32 @@
+The task is maintain a database of bits, to be precise, an array of bits X[1 ... n], that supports the following operations.
+
+  (  i) Init(n) : Initialization of X to an n-bit array. All bits of X[1...n] are initialized to 0.
+  ( ii) Set(i) where i <= n-1: Set X[i]=1. It is guaranteed that i <= n-1 so the rightmost bit of X[] is never set.
+  (iii) IsSet(i): return X[i]
+  ( iv) NextUnset(i): return the smallest j >= i s.t. X[j]=0. This will always return some index. (Think why?)
+E.g., if X[5] is set and X[6] is unset, then NextUnset(5) returns 6 and NextUnset(6) returns 6.
+
+(a) Suppose you do not use any additional data-structure or space and use an array to implement the operations. Write the algorithms for the 4 operations by directly processing X. Analyse the time-complexity of each of the operations.
+
+(b) Now implement the operations by using a disjoint-set data structure. The operations should only use the disjoint-set APIs (do not assume a particular implementation of disjoint-set). Start by explaining what sort of elements will be stored in the sets (you can assume that the elements are "objects" and you can store additional information in them as fields of the objects). Then explain the intuition behind your approach, followed by the implementations of the operations along with their explanations.
+
+(c) Show how your implementation in (b) would handle the following operations.
+Init(9)
+IsSet(3)
+Set(4)
+NextUnset(4)
+Set(5)
+NextUnset(4)
+Set(7)
+Set(8)
+IsSet(4)
+Set(6)
+NextUnset(4)
+
+(d) Discuss the time-complexities of each of the operations for each the following disjoint-set implementations.
+
+Direct (as in (a))
+Reversed tree
+Reversed tree + Union by depth
+Shallow tree + threading
+Shallow + threading + union by size

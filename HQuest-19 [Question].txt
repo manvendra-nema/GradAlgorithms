@@ -1,0 +1,12 @@
+Consider a variant of the SCHEDULE problem posted for HQ11 -- call the problem WILLPASS. Suppose that the problem also takes as input a minimum passing marks P. The question is to output YES if there is a homework schedule that lets you pass the course (which happens only when you get P or more) and output NO otherwise.
+
+Also recall the SUBSET-SUM problem done in class earlier. Essentially, the input is a set S of integers and a target interger T and the problem is to decide whether S has a subset who sum is exactly T.
+
+Design a polynomial-time reduction from SUBSET-SUM to WILLPASS. You are expected to write the following.
+* A reduction algorithm (both pseudocode and explanation)
+* Examples:
+    * Any example of a YES instance of SUBSET-SUM and the output of the reduction on this instance
+    * Any example of a NO instance of SUBSET-SUM and the output of the reduction on this instance
+* Complexity analysis
+* Statement of correctness lemma for the reduction
+* Proof of the lemma

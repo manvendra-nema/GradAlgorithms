@@ -1,0 +1,18 @@
+You are given a sequence of positive integers S[1]...S[n] and an array Gap[1]...Gap[n] of non-negative integers (the n-th value -- Gap[n] is not required but I am adding it to keep the description simple). You have to find a gap-subsequence with the maximum score. These terms are explained below.
+
+Score of a subsequence = sum of values in the subsequence.
+A subsequence T is a gap-subsequence if its values respect the Gap array, i.e., if S[j] is in T then S[j+1], S[j+2], ... S[j+Gap[j]] cannot be in T.
+
+Here is an example:
+S   => 4,2,1,3,5,3
+Gap => 1,2,1,2,9,1
+[4,2,5] is NOT a gap-subsequence
+[4,1,5] is a gap-subsequence and has score = 4+1+5 = 10
+
+Design a DP-based solution to find any gap-subsequence with the maximum score. You have to find the subsequence itself as a list of indices; if there are multiple then return any.
+
+For designing the DP, use one of the given options in Step-(1).
+
+P(k) = maximum score among all gap subsequences using indices from {1 ... k}
+OR
+P(k) = maximum score among all gap subsequences using indices from {k ... n}

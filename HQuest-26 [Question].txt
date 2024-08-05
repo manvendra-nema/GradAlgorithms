@@ -1,0 +1,16 @@
+I forgot to describe another well-known classical NP-complete problem in class. You can add this problem to the list of known NP-complete problems to used for homeworks and exams. This homework shall serve as my redemption.
+
+The PARTITION problem takes as input a set of positive integers A = {a1 ... an} and decides if there is a way to split A into disjoint subsets A1 and A2 with equal sums.
+
+Now consider these two problems.
+PROB1 : Same as PARTITION except that each ai is either p or q (so, A is two-valued). p and q are known integers (constants).
+PROB2 : Same as PARTITION exept that now you have to decide if there is a way to split A into disjoint subsets A1 and A2 such that |sum(A1) - sum(A2)| <= 525, i.e., the difference of their sum is at most 525 (and not 0, as in the original PARTITION problem).
+
+One of these is easy (meaning, solvable in polynomial-time) and the other, well, hard (not solving in polynomial-time) assuming that P is not equal to NP.
+
+(i, 3 points) State which problem can be solved in polynomial time. State a polynomial time algorithm, briefly explain its correctness, and analyse its time-complexity.
+(ii, 6 points) State which problem is NP-complete and prove your claim. For both the verification state their correctness claims and briefly explain the idea behind their proofs.
+
+Both the answers are easy but solving them requires a calm and focussed mind. The hardest step is possibly the reduction for which my suggestion is to list down various possible reduction algorithms and then evaluate their correctness.
+
+(iii, 1 point) Suppose that on a later date someone is able to design a (correct) polynomial-time algorithm for PARTITION. Show that the hard problem above would then become easy (see the meaning of these terms above).

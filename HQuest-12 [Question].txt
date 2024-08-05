@@ -1,0 +1,4 @@
+The 3PART problem takes as input an array A of positive integers (duplicates allowed) and returns YES if A can be partitioned into three disjoint subsets B, C, D such that B ∪ C ∪ D = A and the total value of B, C, and D, are equal.
+Design and analyse a dynamic programming based algorithm for solving 3WAYPARTITION.
+
+Hint: Avoid temptations to involve heuristics.

@@ -1,0 +1,14 @@
+Given two polynomials P(x)=p0 + p1*x + ... and Q(x) = q0 + q1*x + ... of degrees d1 and d2, respectively, there is an FFT-based algorithm to compute R(x) = P(x).Q(x) (i.e., the coefficients of R(x)) in time O(d log d) where d=d1 + d2. Read JE-Appendix-A if you are interested to know about this algorithm. For this question, you have to use the above fact.
+
+Let X, Y, Z be three sets of integers from the range {-M, ..., M} each having at most N elements. Further, M = Theta(N) (e.g., M=100N); take N=cM for analysis. Each of X, Y, Z do not have duplicate elements, but the same number can appear in any two or three of the sets.
+
+1. Design a O(N log N) algorithm to find the number of unique elements of X U Y.
+Hint: M log M and N log N have the same asymptotic complexity.
+Hint: Can you represent a set of integers as a polynomial?
+
+
+1a. (Alternative question) Define X + Y = { x+y : x is in X, y is in Y }. Design a O(N log N) algorithm to find the number of unique elements of X + Y.
+1a was never asked. It was suggested as a practice question. However, some students got confused and submitted an answer to 1a instead of 1.
+
+2. Design a O(N log N) algorithm to determine if there is a triplet x from X, y from Y and z from Z such that x+y+z=0. This is a famous interview question and the running time mandated there is O(N^2), without any stated bound on the range of the numbers.
+Hint: See above hints.

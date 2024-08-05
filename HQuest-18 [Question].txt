@@ -1,0 +1,9 @@
+(a) REACH-LABELED-VERTEX (RLV): Consider an undirected graph G=(V,E) in which each vertex has a label L(v) where the label is some integer from {0,1,2,... 9}. Suppose s and t are two given vertices. We want to design an algorithm that determines if there is path from s to t whose labels follow the pattern 12312312312.... (it need not end at 3). We call this the RLV(G,s,t) problem.
+
+Design a graph-reduction based approach for this algorithm. As instructed before, do not write a complete algorithm; instead, specify how to construct another graph and the problem to solve on that graph. Specify all the components of your approach and discuss the complexity.
+
+(b) REACH-LABELED-EDGE (RLE): Now consider an undirected graph G=(V,E) in which each every edge is labeled, similarly as before. As before, we want an algorithm to determine if there is a path from s to t whose labels follow the same pattern as above.
+
+Design a graph-reduction based approach for this algorithm, with a constraint. Suppose that the reduced graph is H. Then, your approach MUST solve RLV (see (a) above) on H (once or multiple times) and not any other problem. Specify all the components of your approach and discuss the complexity.
+
+Try to design approaches with as low complexities as possible.

@@ -1,0 +1,10 @@
+An anticlique of a graph G is a subset of vertices no two of which share an edge. Anticliques are also known as independent-sets.
+Here are two problems related to anticliques.
+
+AC: Given a graph G, and an integer k, decide if G contains a set V' of k vertices such that, every vertex in V' has no neighbor in V' (in other words, if u and v belong to V' then there cannot be edge between them).
+
+ACX: Given  a graph G, and an integer k, decide if G contains a set V' of at least k vertices such that, every vertex in V' has at most one neighbor in V'.
+
+Prove that ACX is NP-hard with the help of AC.
+
+Note: Observe that ACX is in NP, so this makes ACX NP-complete ( you do not need to prove the facts in the "Note"). Also, note that AC is NP-complete.

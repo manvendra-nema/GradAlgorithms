@@ -1,0 +1,30 @@
+Consider the follow algorithm to return a good vertex cover of a graph. Assume that G is connected.
+def MyVC(G=<V,E>):
+    v = some vertex of G
+    tree T = run Prim's algorithm on G using v as source and 1 as weight of any edge /* runs in polynomial time */
+    /* the vertices of T are exactly those in V
+    return the set of non-leaf nodes of T
+
+Let OPT denote the size of the optimal vertex cover of G. Let APPROXVC denote the set returned by the heuristic and APPROX denote its size.
+
+(a) [2 point] Show that APPROXVC forms a vertex cover.
+
+Let OPTT be any optimal vertex cover of T. Let L be the number of leaf nodes of T. Let J be the number of internal nodes of T that are not in OPTT. degT(a) denotes the degree of a node a in T (which could be different from the degree of a in G -- the latter is denoted deg(a)). For simplicity assume that the root of T has at least two children. 
+
+Hint: It does not really matter that T is obtained using the Prim's algorithm. BFS would have worked too, and so would DFS.
+
+(b [1 point]) Show that any vertex cover of T (and hence, OPTT) can be modified to contain no leaf node.
+
+In the steps below, assume that OPTT has no leaf node.
+
+(c [1 point]) Show that J = n - L - |OPTT|
+
+(d [2 point]) Show that sum_{v not in OPTT} degT(v) <= (n-1)
+
+(e [1 point]) Show that sum_{v : internal node not in OPTT} degT(v) >= 2J
+
+(f [1 point]) Show that (n-1) >= L + 2J
+
+(g [1 point]) Show that |OPTT| >= (n-L)/2 + 0.5
+
+(h [1 point]) Show that OPT > APPROX/2. Then compute the approximation ration of the above algorithm?

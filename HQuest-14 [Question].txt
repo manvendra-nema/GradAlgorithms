@@ -1,0 +1,3 @@
+Find an optimal edit sequence to change UMSM to SUMOMISE by following the space-optimal DP technique discussed in Lec 11. Show ALL the intermediate steps in all the recursive calls and the filled memos during the recursive calls.
+
+Hint: Choose X and Y carefully to minimize your efforts.

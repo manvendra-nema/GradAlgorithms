@@ -1,0 +1,23 @@
+We are back to solving a "homeworks solving" problem.
+
+n HQs are due tomorrow, and you must write them on A4 sheets; you can use at most 1 sheet for any solution, i.e., no solution can span multiple sheets, and you can write multiple solution on 1 sheet, as long as no solution spills over to a new sheet. The solutions need not be in sequence, i.e., it is not necessary for the solution of HQ6 to follow that of HQ5.
+
+You have roughly solved them (with the help of your partner) and you have a good estimate of the amount of space that you would need to write each HQ; say, li is the number of lines needed to write your solution to HQi. Further, let L denote the number of lines that you can write on any A4 sheet.
+
+This being the deadline season, there is a crunch in the supply of A4 sheets on campus; so, you must optimize on the number of A4 sheets. You simply do not have time to really really optimize, so you start by writing the solution to HQ1 on sheet S1 and then continue the following strategy for the solutions to HQ2, HQ3, ... HQn. For any HQ, you see which of the existing sheets can fit the solution; if such a sheet exists, you write the solutoin on that sheet, else, you write it on a fresh sheet.
+
+(a [2 points]) Show that this strategy need not use the optimal number of sheets.
+
+(b [1 point]) Prove that at most 1 sheet can be more than half-empty.
+
+(c [1 point]) Prove that the optimal number of sheets >= V where V = ceil((l1 + l2 + ... + ln)/L).
+
+(d [1 point]) Let k denote the number of sheets used by you. Derive a lower bound on k using some expression of V.
+
+(e) [2 points]) Derive an upper bound on k using some expression of V.
+
+(f [1 point]) Let OPT denote the optimal number of sheets that could have been used. Derive a (maybe trivial) lower bound on OPT in terms of V.
+
+(g [1 point]) Put all things above together and prove that OPT >= k/2. You will need to use the fact that OPT and k are both integers. Try to first derive a strict lower bound on OPT in terms of k.
+
+(h [1 point]) What is the approximation ratio (relative or absolute) of your `algorithm' ?

@@ -1,0 +1,16 @@
+SolveSUBSETSUM takes as input an array of positive integers A={a1 ... an}, and a target integer T and prints a subset of A whose sum is T. If no such subset exists, then it prints "None" (it is okay if the algorithm prints other things apart from "None" in the latter case; this is to facilitate you in designing the algorithm).
+
+SUBSETSUM is the decision version of the above problem.
+
+Prove the following:
+(a :  3 points) If there is a O(n^k) algorithm B for SolveSUBSETSUM then there is a polynomial time algorithm for SUBSETSUM.
+
+(b : 4 points) If there is a O(n^k) algorithm C for SUBSETSUM then there is a polynomial time algorithm for SolveSUBSETSUM.
+
+For both of these, briefly justify why your algorithm is correct, and analyse the time-complexity. If your algorithm is recursive, make sure to include and justify the base cases. Formal induction based proofs are not there, but try to argue that your algorithm behaves correctly for both YES instances, and NO instances.
+
+Also analyse the complexity of your algorithms.
+
+(c : 3 points) Now consider the following problem OPTSUBSETSUM: Given inputs A and T, find and return the largest t <= T such that A has a subset whose sum is t. (Of course, if A has a subset whose sum is T, then return t=T. But such a subset may not exist for every T.)
+
+Suppose we have a O(n^k) algorithm C for SUBSETSUM. Design a polynomial-time algorithm for OPTSUBSETSUM (again, justify and analyse as mentioned above).

@@ -1,0 +1,17 @@
+The UHAMPATH problem takes as input an undirected graph and asks if there is a Hamiltonian path in the graph. Recall that a Hamiltonian path must visit every vertex exactly once (and have distinct start and end vertices).
+
+Defined UHPBUT1 problem as its variant in which the question is if there is a path that visits every vertex exactly once except one vertex (which is not visited).
+
+(a) Design a polynomial time reduction from UHAMPATH to UHPBUT1. State (a) reduction (b) complexity analysis (c) proof of correctness.
+
+(b) Consider the following algorithm.
+def reduce(G):
+    for every vertex v in G:
+        construct G' = copy of G except v and the edges from v
+        for every permutation P of the vertices in G':
+        check if P forms a valid path, i.e., there is an edge between subsequent pairs of nodes in P
+        if P forms a valid path:
+        return a triangle graph (with three vertices)
+    return the following 4 vertex graph with 3 edges : {a-b, b-c, c-d}.
+
+Explain if reduce is a polynomial time reduction from UHPBUT1 to UHAMPATH. Comment on both the aspects: correctness proof and running time. (Is reduce is a polynomial time reduction from UHPBUT1 to UHAMPATH? Explain. Comment on both the aspects: correctness proof and running time.)

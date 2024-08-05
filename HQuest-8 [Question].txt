@@ -1,0 +1,11 @@
+For each of the following problems, the input consists of two arrays X[1 .. k] and Y[1 .. n] where k ≤ n.
+
+(0 [DO NOT SUBMIT -- FOR PRACTICE ONLY]) Design and analyse a recursive backtracking algorithm to determine whether X is a subsequence of Y. For example, the string BBAB is a subsequence of the string BEMBIMEABBLEABBLEBEM.
+
+Design and analyse a recursive backtracking algorithm to determine the length of the longest subsequence of Y that is not a super-sequence of X.
+
+Hint: A is a subsequence of B iff B is a supersequence of A.
+Hint: Comment your pseudocode liberally to explain its steps.
+Hint: We will be happy if your algorithm is simple and easy to understand. We will be unhappy if the former does not hold yet is super-efficient.
+Hint: Give worst-case time complexity. You are allowed to be reasonably loose in your derivation. Try to derive an expression that is easy to explain and is not an unnecessary overestimate.
+Hint: It should be clear why your algorithm performs the task given in the question.

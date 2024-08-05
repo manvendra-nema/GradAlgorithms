@@ -1,0 +1,22 @@
+Let G=(V,E) be a directed graph. I will use the shorthand u ---> v to denote that there is a path from u to v and u -!-> v to denote that there is no path from u to v. Define a directed graph to be nice if it satisfies the property that either u ---> v or v ---> u or both for any two vertices u and v.
+
+For any vertex x, define subtree(x) as the set of vertices that are visited if we call DFS(x) on G before calling DFS() on any other vertex. Answer the questions below. You can use the
+
+(a) Prove the following claim by finishing the partial proof given below.
+Suppose it holds that either u ---> v or v ---> u or both for every pair (u,v) of vertices. Then, there must be some vertex x such that x has a path to every other vertex.
+
+Partial proof.
+Define subtree(x) as the set of vertices that are visited if we call DFS(x) on G before calling DFS() on any other vertex. We will do a proof by contradiction and assume that there exists no x such that x has a path to every other vertex. Choose a vertex w such that subtree(w) has the maximum number of vertices (choose anyone arbitrarily if there are multiple such vertices). (Now arrive at a contradiction involving w.)
+
+(b) Is the above claim true if $G$ is undirected? Either explain why in a few lines or explain why it is false with the a short counter-example.
+
+(c) Prove the following claim by finishing the partial proof given below.
+Suppose it holds that for every vertex v there is some u (different from v) such that v -!-> u. Then, there must be some pair of vertices x and y such that x -!-> y and y -!-> x.
+
+Partial proof.
+We will do a proof by contradiction. Define subtree(x) as above and choose w as above. (Now arrive at a contradiction involving w.)
+
+(d) Define a vertex u to be a supersource if and only if u ---> v for every other vertex v. Use (a) and (c) to provide an alternative characterization of "nice" using the concept of supersource (fill in the blanks below):
+A graph G is nice if and only if ________________________________ .
+
+(e) Design (and explain) an algorithm to find out if a graph is nice using the notion of supersource (i.e., the characterization used in (d)). When implemented in the adjacency graph model, the algorithm should take time O(V^2 + VE) and should use additional O(V) space. Justify the time complexity and space complexity.

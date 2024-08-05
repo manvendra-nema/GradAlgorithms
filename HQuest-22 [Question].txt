@@ -1,0 +1,5 @@
+thinMST: Given a weighted undirected graph G and integer d, is there a minimum spanning tree T of G such that the degree of every node in T is at most d?
+
+Prove that thinMST is NP-complete.
+
+Apart from the NP-complete problems covered in lecture, JE12.13 has a list of NP-complete problems which you can use for this question.

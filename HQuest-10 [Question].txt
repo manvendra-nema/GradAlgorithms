@@ -1,0 +1,14 @@
+Let X and Y be two strings, of lengths m and n, respectively. I will use "X appears in Y" to also mean that "X is a subsequence in Y".
+
+(a) Suppose X[m] = Y[n]. Prove that X appears in Y iff X[1 ... (m-1)] appears in Y[1...(n-1)].
+
+(b) Suppose that X[m] != Y[n]. Prove that X appears in Y iff X appears in Y[1...(n-1)].
+
+The facts in (a) and (b) may seem obvious, and they are. See how you can prove them. If you are stuck, try to use proof by contradiction.
+
+(c) Describe and analyze an dynamic programming solution to determine whether X appears at least twice in Y as two disjoint subsequences. Furnish only the required details as per the template shared in class. You should use the two facts above. Clearly mention in the "proof of correctness of recursive formula" step where these claims are used.
+
+For example, the string PPAP appears as two disjoint subsequences in the string PENPINEAPPLEAPPLEPEN.
+
+
+I am also attaching a solved answer to the longest balanced subsequence problem. In this solution, the "proof of correctness of the recurrence" is given in the step-2 itself, along with the recursive formula.

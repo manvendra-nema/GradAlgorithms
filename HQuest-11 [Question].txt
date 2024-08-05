@@ -1,0 +1,30 @@
+Consider the following SCHEDULE problem which takes as input a set of homeworks with the following information (let the number of homeworks be denoted n):
+    * t1 t2 ... tn : time taken to solve the homeworks (in hours)
+    * m1 m2 ... mn : full marks of the homework (we will assume that you can be sure of getting fullmarks for all the homeworks)
+    * d1 d2 ... dn : deadlines of the homeworks (assume that the deadlines are sorted in the non-decreasing manner)
+The problem is to determine the maximum marks that you can score. The only catch is that your instructor is pretty strict and will not award you any marks for a homework should you submit it after the deadline. But the good part is that you are such a good student that you are confident of solving every homework to perfection (and get the full marks). Due to operational constraints, you cannot stop a homework midway -- if you start one, you have to finish it. You have to submit all the homeworks as a rule, even if it means that some homeworks have to be submitted after their deadlines. All the homeworks are announced at the beginning of the semester.
+
+For example, take the following tasks. Here deadlines are counted as the number of hours past 1st Sep 2022 9:00AM.
+* hw1: t1 = 20, m1 = 10, d1 = 30
+* hw2: t2 = 15, m2 = 15, d2 = 30
+* hw3: t3 = 10, m3 = 10, d3 = 40
+
+If the homeworks are submitted according to (hw3, hw1, hw2), you will get 10+10+0=20 marks. Note that hw2 does not fetch you marks in this schedule since it will be submitted after 45 hours which is past its deadline of 30 hours.
+
+Design a dynamic programming solution to determine the actual order of submitting homeworks.
+
+Few observations on the homework schedules
+
+Call the homeworks that are submitted past their deadlines as "late" and the rest as on-time. Let S denote the optimal schedule of submitting the homeworks. S will have some on-time homeworks and some late homeworks.
+Observation 1:  The late homeworks can be submitted in any order and can be submitted after all the on-time homeworks.
+Observation 2:  The on-time homeworks can be submitted in the (non-decreasing) order of deadlines (if there is a pair of homeworks which appear in S in the opposite order then their ordering can be flipped and the new schedule will still fetch the same marks) and before all the late homeworks.
+
+Here are some subproblems that you can start thinking about.
+Maximum marks from {HW1 ... HWk} when you start solving them at time T.
+Maximum marks from {HWk ... HWn} when you start solving them at time T.
+Maximum marks from {HW1 ... HWk} when you do not work on these homeworks after time T (because, e.g., ML project will be announced at time T+1 and the best group will get a job at Amazon).
+Maximum marks from {HWk ... HWn} when you do not work on the homeworks after time T
+Maximum marks from {HWj ... HWk} when you do not work on the homeworks after time T
+Maximum marks from {HWj ... HWk} when you start solving them at time T
+Maximum marks from {HWj ... HWk} when you start solving them at time S and do not work on the homeworks after time T
+... (more combinations could be make like this)

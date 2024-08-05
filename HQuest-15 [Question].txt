@@ -1,0 +1,10 @@
+You must have heard this puzzle earlier. You are given 3 beakers b1,b2,b3, each with integral capacity, say, A, B, C litres, respectively (A,B,C are integers). The beakers are initially empty and your task is to have t liters of water in any beaker (the other beakers may be empty or have water).
+
+You also have access to a tap from which you can fill water in any beaker -- that beaker could be initially empty or partially filled, but you cannot partially fill after placing it underneath the tap. There is also a washbasin nearby in which you can empty any beaker; again, you cannot partially empty a beaker. Other than filling a beaker or empty one, you can pour the contents of one beaker into another; for the latter case, you will stop either when the first beaker is empty or when the second beaker is full.
+
+Design a method to give the "shortest" sequence of operations (fill __, empty __, pour __ to __) for the task or report that the task is impossible. If there are multiple shortest sequences, reporting any one is fine. Use the graph reduction approach and follow the standard template. Specifically, answer the following.
+
+* Describe graph. How many vertices are there, and what do they correspond to? When do you add an edge (with or without direction, with or without weight) between two vertices, and how many edges are there?
+* State the graph problem to solve on that graph. State algorithm you propose to use for that problem. State if the graph should be constructed completely or can be constructed implicitly/at runtime.
+* Discuss the complexity of your method in terms of A,B,C.
+(Explain all the steps -- why are you doing them.)
